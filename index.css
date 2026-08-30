@@ -445,6 +445,10 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
 }
 
+.work__box--top {
+    align-items: flex-start;
+}
+
 @media(max-width: 900px) {
     .work__box {
         align-items: initial;
