@@ -41,3 +41,49 @@ window.addEventListener("scroll", () => {
     alterStyles(isBackToTopRendered);
   }
 });
+
+/* -----------------------------------------
+  Work carousels (multiple screenshots per project)
+ ---------------------------------------- */
+
+const carousels = document.querySelectorAll(".work__carousel");
+
+carousels.forEach((carousel) => {
+  const track = carousel.querySelector(".work__carousel-track");
+  const slides = Array.from(track.children);
+  const prevButton = carousel.querySelector(".work__carousel-arrow--prev");
+  const nextButton = carousel.querySelector(".work__carousel-arrow--next");
+  const dots = Array.from(carousel.querySelectorAll(".work__carousel-dot"));
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+
+  const goToSlide = (index) => {
+    currentIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle("is-active", i === currentIndex));
+  };
+
+  const startAutoplay = () => {
+    autoplayTimer = window.setInterval(() => goToSlide(currentIndex + 1), 4000);
+  };
+
+  const stopAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = null;
+  };
+
+  const handleManualNavigation = (index) => {
+    stopAutoplay();
+    goToSlide(index);
+  };
+
+  prevButton.addEventListener("click", () => handleManualNavigation(currentIndex - 1));
+  nextButton.addEventListener("click", () => handleManualNavigation(currentIndex + 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => handleManualNavigation(i)));
+
+  goToSlide(0);
+  if (slides.length > 1) {
+    startAutoplay();
+  }
+});

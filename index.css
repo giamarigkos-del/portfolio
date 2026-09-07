@@ -509,6 +509,75 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
+.work__carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.work__carousel-track {
+    display: flex;
+    transition: transform .5s ease;
+}
+
+.work__carousel-track .work__image {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.work__carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid var(--pink);
+    background: rgba(0, 0, 0, .6);
+    color: var(--white);
+    font-size: 2.4rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+}
+
+.work__carousel-arrow:hover {
+    background: var(--pink);
+}
+
+.work__carousel-arrow--prev {
+    left: 1.5rem;
+}
+
+.work__carousel-arrow--next {
+    right: 1.5rem;
+}
+
+.work__carousel-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.work__carousel-dot {
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 1px solid var(--pink);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background .2s;
+}
+
+.work__carousel-dot.is-active {
+    background: var(--pink);
+}
+
 /* --------------------------------------- */
 /* ----- Clients ----- */
 /* --------------------------------------- */
