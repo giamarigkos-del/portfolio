@@ -115,6 +115,12 @@ img {
     max-width: 100%;
 }
 
+/* Όλες οι εικόνες έργων ανοίγουν σε lightbox με κλικ -- βλ. index.js.
+   Cursor zoom-in ως οπτική υπόδειξη ότι μεγεθύνεται. */
+.work__image {
+    cursor: zoom-in;
+}
+
 /* --------------------------------------- */
 /* ----- Headlines and Paragraphs ----- */
 /* --------------------------------------- */
@@ -475,6 +481,12 @@ body:not(.user-is-tabbing) a:focus {
     flex: 0 0 30%;
 }
 
+.work__note {
+    font-size: 1.3rem;
+    opacity: .6;
+    margin-top: -1rem;
+}
+
 .work__list {
     /* list-style-type: square; */
     list-style-position: inside;
@@ -678,4 +690,55 @@ body:not(.user-is-tabbing) a:focus {
     .footer {
         padding: var(--gutter-medium) 0;
     } 
+}
+
+/* -----------------------------------------
+  Lightbox: μεγεθυμένη προβολή εικόνας
+ ---------------------------------------- */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, .9);
+    align-items: center;
+    justify-content: center;
+    padding: var(--gutter-normal);
+    cursor: zoom-out;
+}
+
+.lightbox.is-open {
+    display: flex;
+}
+
+.lightbox__image {
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: default;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .5);
+}
+
+.lightbox__close {
+    position: fixed;
+    top: var(--gutter-small-1);
+    right: var(--gutter-normal);
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 4rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+}
+
+@media(max-width: 500px) {
+    .lightbox {
+        padding: var(--gutter-small-1);
+    }
+    .lightbox__close {
+        top: var(--gutter-small);
+        right: var(--gutter-small-1);
+        font-size: 3rem;
+    }
 }

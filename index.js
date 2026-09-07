@@ -87,3 +87,39 @@ carousels.forEach((carousel) => {
     startAutoplay();
   }
 });
+
+/* -----------------------------------------
+  Lightbox: κλικ σε οποιαδήποτε εικόνα έργου (απλή ή μέσα σε carousel)
+  ανοίγει μεγεθυμένη προβολή. Κλείνει με κλικ έξω, στο X, ή Escape.
+ ---------------------------------------- */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
+const openLightbox = (src, alt) => {
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || "";
+  lightbox.classList.add("is-open");
+};
+
+const closeLightbox = () => {
+  lightbox.classList.remove("is-open");
+  lightboxImage.src = "";
+};
+
+document.querySelectorAll(".work__image").forEach((img) => {
+  img.addEventListener("click", () => openLightbox(img.src, img.alt));
+});
+
+lightboxClose.addEventListener("click", closeLightbox);
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+    closeLightbox();
+  }
+});
