@@ -11,7 +11,7 @@
   </title>
 
   <meta name="description" content="I build multi-agent AI systems that handle real business operations end-to-end.">
-  <meta name="keywords" content="Ioannis Marigkos, AI automation, botpress, n8n, multi-agent systems, Claude API, workflow automation" />
+  <meta name="keywords" content="Ioannis Marigkos, AI automation, botpress, n8n, multi-agent systems, Claude API, workflow automation, Cloudflare Workers, RAG, Idmon Beacon" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -106,6 +106,38 @@
 
           <div class="work__box">
             <div class="work__text">
+              <h3>Idmon Beacon</h3>
+              <p>
+                Company knowledge platform for departments and employees: staff ask questions and get answers grounded only in the documents they are permitted to read, with source references. Per-department roles and confidential documents are enforced on the server, including inside the vector search filter. An LLM judge flags contradictions between documents and verifies that every quoted passage really exists.
+              </p>
+              <ul class="work__list">
+                <li>Cloudflare Workers</li>
+                <li>D1</li>
+                <li>Vectorize</li>
+                <li>R2</li>
+                <li>Gemini API</li>
+              </ul>
+              <p><em>Built for operations: SSO and MFA, encrypted backups with an offsite copy, automated per-customer database provisioning, and 94 automated test suites with real-browser end-to-end tests and CI security scanning. Happy to give a live walkthrough on request.</em></p>
+              <a href="https://idmonbeacon.app/en/" class="btn" target="_blank">Visit the site</a>
+            </div>
+            <div class="work__image-box work__carousel">
+              <div class="work__carousel-track">
+                <img src="./images/project-6-1.png" class="work__image" alt="Idmon Beacon, document portal and assistant" />
+                <img src="./images/project-6-2.png" class="work__image" alt="Idmon Beacon, contradiction detection between documents" />
+                <img src="./images/project-6-3.png" class="work__image" alt="Idmon Beacon, admin and access control" />
+              </div>
+              <button type="button" class="work__carousel-arrow work__carousel-arrow--prev" aria-label="Previous screenshot">&#8249;</button>
+              <button type="button" class="work__carousel-arrow work__carousel-arrow--next" aria-label="Next screenshot">&#8250;</button>
+              <div class="work__carousel-dots">
+                <button type="button" class="work__carousel-dot is-active" aria-label="Screenshot 1"></button>
+                <button type="button" class="work__carousel-dot" aria-label="Screenshot 2"></button>
+                <button type="button" class="work__carousel-dot" aria-label="Screenshot 3"></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
               <h3>Catalog Autofill</h3>
               <p>
                 Converts unstructured vendor menus (photos, PDFs, URLs) into structured product catalogs using AI-powered extraction with per-field confidence scoring and human review.
@@ -173,8 +205,8 @@
             <p>
               I build multi-agent AI systems that handle real business operations 
               end-to-end: conversational interfaces, predictive analytics, document 
-              intelligence, data extraction, workflow automation. Production-grade 
-              ready.
+              intelligence, data extraction, workflow automation, and permission-aware
+              company knowledge platforms. Production-grade ready.
             </p>
             <a href="./Resume/CV_Marigkos_Ioannis.pdf" class="btn" target="_blank">My Resume</a>
           </div>
